@@ -4,7 +4,7 @@ Author: Matias Pujado
 Conky version 1.10
 04/02/2018
 Inspired in: + NvidiaDemo - conky.conf by n00by4ever
-	           + Anonimous .conkyrc 
+	     + Anonimous .conkyrc 
              + Conky by JamesHardy88 (Modified by Umair - http://www.NoobsLab.com)
 
 ]]
@@ -61,7 +61,7 @@ conky.config = {
 }
 
 conky.text = [[
-${image /home/coder/.conky/Debian9/Images/Deb01.png -p 100,15 -s 80x100}
+${image $HOME/.conky/Debian9/Images/Deb01.png -p 100,15 -s 80x100}
 
 ${voffset 60}${color0}SYSTEM ${hr 2}
 ${voffset 2}System: ${alignr}${sysname} - Debian Stretch
@@ -95,7 +95,7 @@ ${voffset 4}${fs_used /}/${fs_size /} ${alignr}${fs_free /} Free ${fs_bar 8,60 /
 ${voffset 2}Home: ${stippled_hr 1}
 ${voffset 4}${fs_used /home}/${fs_size /home} ${alignr}${fs_free /home} Free ${fs_bar 8,60 /home}
 ${voffset 2}MediaCenter: ${stippled_hr 1}
-${voffset 4}${fs_used /home/coder/MediaCenter}/${fs_size /home/coder/MediaCenter} ${alignr}${fs_free /home/coder/MediaCenter} Free ${fs_bar 8,60 /home/coder/MediaCenter}
+${voffset 4}${fs_used $HOME/MediaCenter}/${fs_size $HOME/MediaCenter} ${alignr}${fs_free $HOME/MediaCenter} Free ${fs_bar 8,60 $HOME/MediaCenter}
 ${voffset 2}Vault: ${stippled_hr 1}
-${voffset 4}${fs_used /home/coder/Vault}/${fs_size /home/coder/Vault} ${alignr}${fs_free /home/coder/Vault} Free ${fs_bar 8,60 /home/coder/Vault}
+${voffset 4}${fs_used $HOME/Vault}/${fs_size $HOME/Vault} ${alignr}${fs_free $HOME/Vault} Free ${fs_bar 8,60 $HOME/Vault}
 ]]
