@@ -1,0 +1,99 @@
+-- vim: ts=4 sw=4 noet ai cindent syntax=lua
+--[[
+Author: Matias Pujado
+Conky version 1.10
+04/02/2018
+Inspired in: + NvidiaDemo - conky.conf by n00by4ever
+	           + Anonimous .conkyrc 
+             + Conky by JamesHardy88 (Modified by Umair - http://www.NoobsLab.com)
+
+]]
+
+conky.config = {
+-- ----------------------------------Windows Sttings   
+    own_window = true,
+    own_window_class = 'Conky',
+    own_window_type = 'dock',
+    own_window_hints = 'undecorated,sticky,below,skip_taskbar,skip_pager',
+    
+    own_window_transparent = true,
+    own_window_argb_visual = true,
+    
+    background = false,
+    double_buffer = true,
+-- ----------------------------------Position    
+    alignment = 'top_left',
+    
+    gap_x = 1370,
+    gap_y = 20,
+    
+    minimum_height = 5,
+    minimum_width = 5,
+-- ----------------------------------Font
+    draw_borders = false,
+    draw_graph_borders = false,
+    draw_outline = false,
+    draw_shades = false,
+    
+    font = 'Andale Mono:size=10',
+    
+    uppercase = false,
+    use_spacer = 'none',
+    
+    text_buffer_size = 2048,
+    use_xft = true,
+--    override_utf8_locale = true,
+-- ----------------------------------Other   
+    net_avg_samples = 2,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
+    
+    stippled_borders = 0,
+    update_interval = 1.0,
+    
+    color0 = 'FFFFFF',
+    color1 = '04efeb',
+}
+
+conky.text = [[
+${image /home/coder/.conky/Debian9/Images/Nvidia04.png -p 100,2 -s 80x80}
+${voffset 56}${color0}${offset 10}GPU ${hr 2}
+
+${offset 10}Video Card: ${alignr}Nvidia Geforce GT 820M
+${offset 10}${voffset 4}Clock:${alignr}${exec optirun -b none nvidia-settings -c :8 -q [gpu:0]/GPUCurrentClockFreqs -t} MHz 
+${offset 10}${voffset 4}Shaders:${alignr}${exec optirun -b none nvidia-settings -c :8 -q [gpu:0]/GPUCurrentProcessorClockFreqs -t} MHz 
+${offset 10}${voffset 4}Memory:${alignr}${exec optirun -b none nvidia-settings -c :8 -q [gpu:0]/UsedDedicatedGPUMemory -t} / ${exec optirun -b none nvidia-settings -c :8 -q [gpu:0]/TotalDedicatedGPUMemory -t} MiB 
+${offset 10}${voffset 4}Temp:${alignr}${exec optirun -b none nvidia-settings -c :8 -q [thermalsensor:0]/ThermalSensorReading -t}°C
+
+${offset 10}${voffset 4}PCIE current:${alignr}x${exec optirun -b none nvidia-settings -c :8 -q [gpu:0]/PCIECurrentLinkWidth -t} 
+${offset 10}${voffset 4}PCIE max:${alignr}x${exec optirun -b none nvidia-settings -c :8 -q [gpu:0]/PCIEMaxLinkWidth -t} 
+${offset 10}${voffset 4}PCIE current link speed:${alignr}${exec optirun -b none nvidia-settings -c :8 -q [gpu:0]/PCIECurrentLinkSpeed -t} MB/s 
+${offset 10}${voffset 4}PCIE max link speed:${alignr}${exec optirun -b none nvidia-settings -c :8 -q [gpu:0]/PCIEMaxLinkSpeed -t} MB/s 
+
+${offset 10}NETWORK ${hr 2}
+
+${offset 10}${color0}Ethernet ${stippled_hr 1}${color} 
+
+${offset 10}${color0}Local IP: ${alignr}${addrs enp1s0}
+${offset 10}${voffset 4}Public IP: ${alignr}${execi 1 /home/coder/.conky/Debian9/ip.sh}
+${offset 10}${voffset 4}Up: ${upspeed enp1s0} kb/s ${alignr}${upspeedgraph enp1s0 8,60}
+${offset 10}${voffset 4}Upload: ${alignr}${totalup enp1s0}
+${offset 10}${voffset 4}Down: ${downspeed enp1s0} kb/s ${alignr}${downspeedgraph enp1s0 8,60}
+${offset 10}${voffset 4}Download: ${alignr}${totaldown enp1s0}
+
+${offset 10}${color0}WiFi ${stippled_hr 1}${color} 
+
+${offset 10}${color0}ESSID: ${alignr}${wireless_essid}
+${offset 10}${voffset 4}Local IP: ${alignr}${addr wlp2s0}
+${offset 10}${voffset 4}Public IP: ${alignr}${execi 1 /home/coder/.conky/Debian9/ip.sh}
+${offset 10}${voffset 4}Channel: ${alignr}${wireless_channel wlp2s0}
+${offset 10}${voffset 4}Wireless Mode: ${alignr}${wireless_mode wlp2s0}
+${offset 10}${voffset 4}Quality: ${alignr}${wireless_link_qual_perc wlp2s0} %
+${offset 10}${voffset 4}Up: ${upspeed wlp2s0} kb/s ${alignr}${upspeedgraph wlp2s0 8,60}
+${offset 10}${voffset 4}Upload: ${alignr}${totalup wlp2s0}
+${offset 10}${voffset 4}Down: ${downspeed wlp2s0} kb/s ${alignr}${downspeedgraph wlp2s0 8,60}
+${offset 10}${voffset 4}Download: ${alignr}${totaldown wlp2s0}
+
+]]

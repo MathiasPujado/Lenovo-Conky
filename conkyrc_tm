@@ -1,0 +1,64 @@
+-- vim: ts=4 sw=4 noet ai cindent syntax=lua
+--[[
+Author: Matias Pujado
+Conky version 1.10
+04/02/2018
+Inspired in: + NvidiaDemo - conky.conf by n00by4ever
+	           + Anonimous .conkyrc 
+             + Conky by JamesHardy88 (Modified by Umair - http://www.NoobsLab.com)
+
+]]
+
+conky.config = {
+-- ----------------------------------Windows Sttings   
+    own_window = true,
+    own_window_class = 'Conky',
+    own_window_type = 'dock',
+    own_window_hints = 'undecorated,sticky,below,skip_taskbar,skip_pager',
+    
+    own_window_transparent = true,
+    own_window_argb_visual = true,
+    
+    background = false,
+    double_buffer = true,
+-- ----------------------------------Position    
+    alignment = 'top_middle',
+    
+    gap_x = -1360,
+    gap_y = 30,
+    
+    minimum_height = 5,
+    minimum_width = 5,
+-- ----------------------------------Font
+    draw_borders = false,
+    draw_graph_borders = false,
+    draw_outline = false,
+    draw_shades = false,
+    
+    font = 'Comfortaa:size=15',
+    
+    uppercase = false,
+    use_spacer = 'none',
+    
+    text_buffer_size = 2048,
+    use_xft = true,
+    override_utf8_locale = true,
+-- ----------------------------------Other   
+    net_avg_samples = 2,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
+    
+    stippled_borders = 0,
+    update_interval = 1.0,
+    
+    color0 = 'FFFFFF',
+    color1 = '04efeb',
+}
+
+conky.text = [[
+${font Comfortaa:pixelsize=100}${color0}${alignc}${time %H:%M}${font}
+${voffset 10}${font Comfortaa:pixelsize=25}${alignc}${time  %B %d, %Y}
+${alignc}${voffset 4}${font Comfortaa:pixelsize=17}${time %A}${font}
+]]

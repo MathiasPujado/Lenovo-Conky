@@ -1,0 +1,17 @@
+[Desktop Entry]
+Categories=System;
+Comment[en_US]=Keep a background eye on your system
+Comment=Keep a background eye on your system
+Exec=/usr/bin/conky -c /home/coder/.conky/conkyrc_tm
+GenericName[en_US]=Background monitor
+GenericName=Background monitor
+Hidden=false
+Icon=htop
+Name[en_US]=conky
+Name=conky
+Path=/home/coder
+StartupNotify=false
+Terminal=false
+Type=Application
+X-GNOME-Autostart-enabled=true
+X-KDE-SubstituteUID=false
